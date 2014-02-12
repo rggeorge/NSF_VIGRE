@@ -1,0 +1,10 @@
+        xstep = zeros(Nbf*2, 1);
+        step_g_l = zeros(Nbf*2, 1);
+        for n = 1:Nbf
+            xstep(n*2:n*2+1) = n*bf_mod_no*dx;
+            step_g_l(n*2-1:n*2) = g_l_rec(n);
+            initial_g_l((n*2-1):n*2) = initial_guess(n);
+        end
+
+        plot(x_grid, g_l, xstep(1:Nbf*2), step_g_l, 'g', xstep(1:Nbf*2), ...
+             initial_g_l, 'c-o')
